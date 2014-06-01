@@ -7,9 +7,10 @@ This exercise is done with javascript and using Jasmine BDD http://jasmine.githu
 
 The objective is practise the setter and getter in javascript.
 
-##The exercise that I propouse is the following:
+###The exercise that I propose is the following
 
 1. Create the User class with the following properties:
+
 - name (string)
 - surname (string)
 - email (string)
