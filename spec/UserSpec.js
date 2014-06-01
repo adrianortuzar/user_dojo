@@ -1,4 +1,8 @@
 describe("Class User test", function() {
+	"use strict";
+
+	var User = window.User;
+
 	function getUserWithData(){
 		var user = new User({
 			password: "1234",
@@ -14,12 +18,12 @@ describe("Class User test", function() {
 
 		var user = getUserWithData();
 
-		user.change('name', 'Juan', "1234");
+		user.change("name", "Juan", "1234");
 		it("user.name Should be a string 'Juan'", function() {
 			expect(user.name).toBe("Juan");
 		});
 
-		user.change('surname', 'Rodrigo', "1234");
+		user.change("surname", "Rodrigo", "1234");
 		it("user.surname Should be a 'Rodrigo'", function() {
 			expect(user.surname).toBe("Rodrigo");
 		});
@@ -28,7 +32,7 @@ describe("Class User test", function() {
 			expect(user.fullname).toBe("Juan Rodrigo");
 		});
 
-		user.change('telephoneNumber', 66666, "1234");
+		user.change("telephoneNumber", 66666, "1234");
 		it("user.telephoneNumber Should be 66666", function() {
 			expect(user.telephoneNumber).toBe(66666);
 		});
@@ -45,11 +49,6 @@ describe("Class User test", function() {
 		user.surname = "Rodrigo";
 		it("user.surname Should be a 'Ortuzar'", function() {
 			expect(user.surname).toBe("Ortuzar");
-		});
-
-		user.fullname = "Juan Rodrigo";
-		it("user.fullname Should be a 'Adrian Ortuzar'", function() {
-			expect(user.fullname).toBe("Adrian Ortuzar");
 		});
 
 		user.telephoneNumber = 12344;
