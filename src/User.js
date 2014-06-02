@@ -3,6 +3,20 @@
     //private
     var _password;
 
+    /**
+     * [minimunData private function that is going to determine which is the minimum data to construct a User. If the data is not valid is going to throw a exception.]
+     * @param  {[object]} options [options of User]
+     */
+    function minimunData (options){
+        if (options && options.password && options.email) {
+            this.email = options.email;
+        }
+        else {
+            throw "User should have a minimun data, password and email";
+        }
+    }
+
+
     //public
     var User = function(options){
     	minimunData.call(this, options);
@@ -11,7 +25,7 @@
 
     	this.lastPasswordValue = _password;
 
-    	this.name = (options && options.name && (typeof options.surname === "string")) ? options.name : "";
+    	this.name = (options && options.name && (typeof options.name === "string")) ? options.name : "";
 
     	this.surname = (options && options.surname && (typeof options.surname === "string")) ? options.surname : "";
 
@@ -25,6 +39,11 @@
 
     //define user prototype
     User.prototype = {
+        /**
+         * Set the constructor of the user because we rewrite the prototype object
+         */
+        constructor: User,
+
     	//name
         get name(){
             return this._name;
@@ -85,18 +104,5 @@
     		console.warn("Trying change "+key+" with a wrong password");
     	}	
     };
-
-    /**
-     * [minimunData private function that is going to determine which is the minimum data to construct a User. If the data is not valid is going to throw a exception.]
-     * @param  {[object]} options [options of User]
-     */
-    function minimunData (options){
-    	if (options && options.password && options.email) {
-    		this.email = options.email;
-    	}
-    	else {
-    		throw "User should have a minimun data, password and email";
-    	}
-    }
 
 })();
